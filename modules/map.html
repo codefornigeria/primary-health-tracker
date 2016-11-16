@@ -9,13 +9,38 @@
 <div class="col-md-6 map">
 	 <ng-map center="[6.519342, 3.372343]" zoom="15" scrollwheel="false">
 	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/green.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
+	 	<marker ng-repeat="yellowarea in yellowareas" position="{{yellowarea.pos}}" icon="assets/img/yellow.png" title="Location: {{yellowarea.name}}" on-click="seeDetails(event, yellowarea, 'yellowarea')"></marker>
 	 </ng-map>
 </div>
 <div class="col-md-6 card-wrapper">
 	<div class="col-md-12 survey">
-		<h1>What is your location?</h1>
 		<form>
-			
+			<div class="form-group">
+				<label for="location">What is your location?</label>
+               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location">
+           	</div>
+           	<div class="form-group" ng-show="location">
+				<label for="hospital">Select health center</label>
+				<select class="form-control" id="hospital" ng-model="hospital">
+					<option value="">Select</option>
+					<option>Ikorodu health center</option>
+					<option>EKO hospital</option>
+				</select>
+           	</div>
+           	<div class="col-md-12 no-padder">
+           		<h1 class="rating-title">Rate the hospital</h1>
+           		<fieldset class="rating no-padder">
+           			<input type="radio" id="star5" name="rating" value="5" /><label for="star5">5 stars</label>
+           			<input type="radio" id="star4" name="rating" value="4" /><label for="star4">4 stars</label>
+           			<input type="radio" id="star3" name="rating" value="3" /><label for="star3">3 stars</label>
+           			<input type="radio" id="star2" name="rating" value="2" /><label for="star2">2 stars</label>
+           			<input type="radio" id="star1" name="rating" value="1" /><label for="star1">1 star</label>
+           		</fieldset>
+           	</div>
+           	<div class="form-group">
+				<label for="">What is your feedback?</label>
+				<textarea class="form-control" ng-model="feedback" rows="5"></textarea>
+           	</div>
 		</form>
 	</div>
 	<div class=" hospitals">

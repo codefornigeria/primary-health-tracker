@@ -103,10 +103,10 @@ a {
 		text-transform: uppercase;
 		text-align-last: center;
 		-webkit-appearance: none;
-	    -moz-appearance: none;
-	   	appearance: none;
-	   	padding-bottom: 10px;
-	   	font-size: 18px;
+		-moz-appearance: none;
+		appearance: none;
+		padding-bottom: 10px;
+		font-size: 18px;
 	}
 
 	.user-location {
@@ -246,31 +246,31 @@ a {
 	.hospitals {
 		.card {
 			margin-bottom: 30px;
-    		box-shadow: 0 20px 20px rgba(0,0,0,.08);
-    		background-color: white;
-    		.hospital-img {
-    			img {
-    				width: 100%;
-    			}
-    		}
-    		.hospital-info {
-    			width: 100%;
-    			padding: 20px;
-    			h1 {
-    				font-size: 24px;
-    				color: #4b4f56;
-    				font-weight: 400;
-    				line-height: 32px;
-    				margin-bottom: 12px;
-    			}
-    			p {
-    				font-size: 14px;
-				    font-weight: 400;
-				    text-align: left;
-				    line-height: 20px;
-				    color: #90949C;
-    			}
-    		}
+			box-shadow: 0 20px 20px rgba(0,0,0,.08);
+			background-color: white;
+			.hospital-img {
+				img {
+					width: 100%;
+				}
+			}
+			.hospital-info {
+				width: 100%;
+				padding: 20px;
+				h1 {
+					font-size: 24px;
+					color: #4b4f56;
+					font-weight: 400;
+					line-height: 32px;
+					margin-bottom: 12px;
+				}
+				p {
+					font-size: 14px;
+					font-weight: 400;
+					text-align: left;
+					line-height: 20px;
+					color: #90949C;
+				}
+			}
 		}
 	}
 }
@@ -279,6 +279,135 @@ a {
 	h1 {
 		font-size: 24px;
 	}
+	label {
+		color: #4b4f56;
+		font-size: 18px;
+		font-weight: 400;
+		text-transform: none;
+	}
+	input {
+		outline: none;
+		border: 1px #e9ebee solid;
+	}
+	select {
+		-webkit-appearance: none;
+	}
+	.rating-title {
+		font-size: 18px;
+	}
+	/*Custom radio buttons*/
+    .custom {
+        /* Base for label styling */
+        [type="radio"]:not(: checked), [type="radio"]:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        [type="radio"]:not(:checked) + label,
+        [type="radio"]:checked + label {
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+        }
+        /* radio aspect */
+        [type="radio"]:not(:checked) + label:before,
+        [type="radio"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 17px;
+            height: 17px;
+            border: 1px solid #aaa;
+            background: #f8f8f8;
+            border-radius: 3px;
+            box-shadow: none;
+        }
+        /* checked mark aspect */
+        [type="radio"]:not(:checked) + label:after,
+        [type="radio"]:checked + label:after {
+            content: '✔';
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            font-size: 18px;
+            line-height: 0.8;
+            color: #09ad7e;
+            transition: all .2s;
+        }
+        /* checked mark aspect changes */
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        [type="checkbox"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* disabled radio */
+        [type="radio"]:disabled:not(:checked) + label:before,
+        [type="radio"]:disabled:checked + label:before {
+            box-shadow: none;
+            border-color: #bbb;
+            background-color: #ddd;
+        }
+        [type="radio"]:disabled:checked + label:after {
+            color: #999;
+        }
+        [type="radio"]:disabled + label {
+            color: #aaa;
+        }
+        /* accessibility */
+        [type="radio"]:checked:focus + label:before,
+        [type="radio"]:not(:checked):focus + label:before {
+            border: 1px dotted blue;
+        }
+    }
+    .rating {
+        float: left;
+        // margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .rating:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+        left: 0;
+        clip: rect(0, 0, 0, 0);
+    }
+    .rating:not(:checked) > label {
+        float: right;
+        width: 2.3em;
+        padding: 0 .1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 100%;
+        line-height: 1.2;
+        color: #ddd;
+    }
+    .rating:not(:checked) > label:before {
+        content: '★ ';
+        font-size: 24px;
+    }
+    .rating > input:checked ~ label {
+        color: #ea0;
+    }
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+        color: #ea0;
+    }
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+        color: #ea0;
+    }
+    .rating > label:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
 }
 
 ng-map {
