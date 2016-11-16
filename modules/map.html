@@ -1,0 +1,89 @@
+<!-- <nav class="col-md-12 toolbar">
+	<div class="col-md-6 toolbar-logo">
+		<a ui-sref="home"> GIDI SENSORS </a>
+	</div>
+	<div class="col-md-6 about">
+		<a href="">About</a>
+	</div>
+</nav> -->
+<div class="col-md-6 map">
+	 <ng-map center="[6.519342, 3.372343]" zoom="15" scrollwheel="false">
+	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/green.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
+	 </ng-map>
+</div>
+<div class="col-md-6 card-wrapper">
+	<div class="col-md-12 survey">
+		<h1>What is your location?</h1>
+		<form>
+			
+		</form>
+	</div>
+	<div class=" hospitals">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Ikorodu health center</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/Gbagada-General-Hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Ikeja general hospital</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Military hospital</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Ikeja general hospital</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Ikorodu health center</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="hospital-img">
+					<img src="assets/img/hospital.jpg">
+				</div>
+				<div class="hospital-info">
+					<h1>Ikeja general hospital</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

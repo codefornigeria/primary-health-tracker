@@ -1,0 +1,21 @@
+<div class="landing-page">
+	<img src="assets/img/cfn_logo.png" class="landing-page-logo">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Gidi Sensors</h1>
+
+		<p>
+			Every day, Lagosians are exposed to different forms of pollution. When you go to work,
+ 			church, mall, even where you live is polluted one way or another.
+			Gidi Sensors is a map showing the level of pollution
+			at select locations in Lagos.
+		</p>
+
+		<div>
+			<select class="location" ng-options="area as area.name for area in areas track by area.id" ng-model="selectedPlace" ng-change="goToMap(selectedPlace)">
+				<option value="">Select your city</option>
+			</select>
+		</div>
+
+		<p class="user-location" ui-sref="map"><i class="fa fa-map-marker"></i> Use your location</p>
+	</div>
+</div>
