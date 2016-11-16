@@ -208,6 +208,9 @@ a {
   line-height: 20px;
   color: #90949C;
 }
+.card-wrapper .hospitals .card .hospital-info .rating {
+  margin-bottom: 12px;
+}
 .survey {
   margin-bottom: 30px;
   /*Custom radio buttons*/
