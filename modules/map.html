@@ -23,13 +23,26 @@
            	<div class="form-group" ng-show="location">
 				<label for="hospital">Select health center</label>
 				<select class="form-control" id="hospital" ng-model="hospital">
-					<option value="">Select</option>
+					<option value="">Choose health center</option>
 					<option>Ikorodu health center</option>
 					<option>EKO hospital</option>
+					<option value="C section">C-Section</option>
+					<option value="Measles immunization">Measles Immunization</option>
+					<option value="Ante-natal care">Ante-natal Care</option>
+					<option value="Family planning">Family Planning</option>
+					<option value="Malaria treatment">Malaria Treatment</option>
 				</select>
            	</div>
-           	<div class="col-md-12 no-padder">
-           		<h1 class="rating-title">Rate the hospital</h1>
+           	<div class="form-group" ng-show="location">
+				<label for="hospital">Select a service</label>
+				<select class="form-control" id="hospital" ng-model="service">
+					<option value="">Choose a service</option>
+					<option>Maternal Health Delivery</option>
+					<option>Birth Attendants</option>
+				</select>
+           	</div>
+           	<div class="col-md-12 no-padder" ng-show="location">
+           		<h1 class="rating-title">Rate the service</h1>
            		<fieldset class="rating no-padder">
            			<input type="radio" id="star5" name="rating" value="5" /><label for="star5">5 stars</label>
            			<input type="radio" id="star4" name="rating" value="4" /><label for="star4">4 stars</label>
@@ -38,10 +51,11 @@
            			<input type="radio" id="star1" name="rating" value="1" /><label for="star1">1 star</label>
            		</fieldset>
            	</div>
-           	<div class="form-group">
+           	<div class="form-group" ng-show="location">
 				<label for="">What is your feedback?</label>
 				<textarea class="form-control" ng-model="feedback" rows="5"></textarea>
            	</div>
+           	<button class="btn btn-primary" ng-show="location">Submit</button>
 		</form>
 	</div>
 	<div class=" hospitals">
@@ -51,7 +65,7 @@
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikorodu health center</h1>
+					<h1>Ikorodu Health Center</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span>
 		            </div>
@@ -65,7 +79,7 @@
 					<img src="assets/img/Gbagada-General-Hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikeja general hospital</h1>
+					<h1>Ikeja General Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
@@ -79,7 +93,7 @@
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Military hospital</h1>
+					<h1>Military Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
@@ -93,7 +107,7 @@
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikeja general hospital</h1>
+					<h1>Eko Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
@@ -107,7 +121,7 @@
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikorodu health center</h1>
+					<h1>Oak Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
@@ -121,7 +135,7 @@
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikeja general hospital</h1>
+					<h1>Luth General Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span>
 		            </div>
