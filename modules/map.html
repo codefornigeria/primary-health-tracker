@@ -20,20 +20,19 @@
 				<label for="location">Where is the hospital?</label>
                	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location" ng-change="search()" >
            	</div>
-           	<div class="form-group animated fadeIn" ng-show="location">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="location">
 				<label for="hospital">Select one from the list</label>
 				<select class="form-control" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
 					<option>Ikorodu health center</option>
 					<option>EKO hospital</option>
 					<option value="C section">Ikeja general hospital</option>
-					<option value="Measles immunization">Measles Immunization</option>
 					<option value="Ante-natal care">Military hospital</option>
 					<option value="Family planning">Luth general hospital</option>
 					<option value="Malaria treatment">Oak hospital</option>
 				</select>
            	</div>
-           	<div class="form-group animated fadeIn" ng-show="hospital">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="hospital">
 				<label for="hospital">What service are you reporting on? </label>
 				<select class="form-control" id="hospital" ng-model="service">
 					<option value="">Choose a service</option>
@@ -44,7 +43,7 @@
 					<option value="Malaria treatment">Malaria Treatment</option>
 				</select>
            	</div>
-           	<div class="col-md-12 no-padder animated fadeIn" ng-show="service">
+           	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="service">
            		<h1 class="rating-title">Rate the service</h1>
            		<fieldset class="rating no-padder">
            			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5">5 stars</label>
@@ -54,7 +53,7 @@
            			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1">1 star</label>
            		</fieldset>
            	</div>
-           	<div class="col-md-12 no-padder animated fadeIn service-cards" ng-show="rating">
+           	<div class="col-md-12 no-padder animated animate-slow fadeIn service-cards" ng-show="rating">
            		<h1 class="rating-title">What went well?</h1>
            		<span class="service-card" ng-class="{selected: cleanliness === 'True'}" ng-click="cleanliness = 'True'">cleanliness</span>
            		<span class="service-card" ng-class="{selected: power === 'True'}" ng-click="power = 'True'">Power Supply</span>
@@ -62,8 +61,14 @@
            		<span class="service-card" ng-class="{selected: blood === 'True'}" ng-click="blood = 'True'">Blood Availability</span>
            	</div>
            	<div class="form-group" ng-show="service">
-				<label for="">What is your feedback?</label>
+				<label for="">Any feedback?</label>
 				<textarea class="form-control" ng-model="feedback" rows="5"></textarea>
+           	</div>
+           	<div class="form-group animated animate-slow fadeIn" ng-show="service">
+           		<label for="photo">Attach a photo</label>
+           		<div class="custom-file-upload">
+           			<input type="file" id="photo">
+           		</div>
            	</div>
            	<button class="btn btn-primary animated fadeIn" ng-show="service">Submit</button>
 		</form>

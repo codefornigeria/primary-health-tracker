@@ -503,3 +503,13 @@ ng-map {
 .selected {
   background: #f5f5f5 !important;
 }
+.custom-file-upload {
+  width: 300px;
+  height: auto;
+  background: white;
+  padding: 10px;
+  border: 1px solid #e9ebee;
+}
+.custom-file-upload input {
+  border: none;
+}
