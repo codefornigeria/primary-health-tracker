@@ -17,15 +17,26 @@
 	<div class="col-md-12 survey">
 		<form>
 			<div class="form-group">
-				<label for="location">What is your location?</label>
+				<label for="location">Where is the hospital?</label>
                	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location" ng-change="search()" >
            	</div>
-           	<div class="form-group" ng-show="location">
-				<label for="hospital">Select health center</label>
+           	<div class="form-group animated fadeIn" ng-show="location">
+				<label for="hospital">Select one from the list</label>
 				<select class="form-control" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
 					<option>Ikorodu health center</option>
 					<option>EKO hospital</option>
+					<option value="C section">Ikeja general hospital</option>
+					<option value="Measles immunization">Measles Immunization</option>
+					<option value="Ante-natal care">Military hospital</option>
+					<option value="Family planning">Luth general hospital</option>
+					<option value="Malaria treatment">Oak hospital</option>
+				</select>
+           	</div>
+           	<div class="form-group animated fadeIn" ng-show="hospital">
+				<label for="hospital">What service are you reporting on? </label>
+				<select class="form-control" id="hospital" ng-model="service">
+					<option value="">Choose a service</option>
 					<option value="C section">C-Section</option>
 					<option value="Measles immunization">Measles Immunization</option>
 					<option value="Ante-natal care">Ante-natal Care</option>
@@ -33,29 +44,28 @@
 					<option value="Malaria treatment">Malaria Treatment</option>
 				</select>
            	</div>
-           	<div class="form-group" ng-show="location">
-				<label for="hospital">Select a service</label>
-				<select class="form-control" id="hospital" ng-model="service">
-					<option value="">Choose a service</option>
-					<option>Maternal Health Delivery</option>
-					<option>Birth Attendants</option>
-				</select>
-           	</div>
-           	<div class="col-md-12 no-padder" ng-show="location">
+           	<div class="col-md-12 no-padder animated fadeIn" ng-show="service">
            		<h1 class="rating-title">Rate the service</h1>
            		<fieldset class="rating no-padder">
-           			<input type="radio" id="star5" name="rating" value="5" /><label for="star5">5 stars</label>
-           			<input type="radio" id="star4" name="rating" value="4" /><label for="star4">4 stars</label>
-           			<input type="radio" id="star3" name="rating" value="3" /><label for="star3">3 stars</label>
-           			<input type="radio" id="star2" name="rating" value="2" /><label for="star2">2 stars</label>
-           			<input type="radio" id="star1" name="rating" value="1" /><label for="star1">1 star</label>
+           			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5">5 stars</label>
+           			<input type="radio" id="star4" name="rating" value="4" ng-model="rating"/><label for="star4">4 stars</label>
+           			<input type="radio" id="star3" name="rating" value="3" ng-model="rating"/><label for="star3">3 stars</label>
+           			<input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2">2 stars</label>
+           			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1">1 star</label>
            		</fieldset>
            	</div>
-           	<div class="form-group" ng-show="location">
+           	<div class="col-md-12 no-padder animated fadeIn service-cards" ng-show="rating">
+           		<h1 class="rating-title">What went well?</h1>
+           		<span class="service-card" ng-class="{selected: cleanliness === 'True'}" ng-click="cleanliness = 'True'">cleanliness</span>
+           		<span class="service-card" ng-class="{selected: power === 'True'}" ng-click="power = 'True'">Power Supply</span>
+           		<span class="service-card" ng-class="{selected: response === 'True'}" ng-click="response = 'True'">Ambulance Response</span>
+           		<span class="service-card" ng-class="{selected: blood === 'True'}" ng-click="blood = 'True'">Blood Availability</span>
+           	</div>
+           	<div class="form-group" ng-show="service">
 				<label for="">What is your feedback?</label>
 				<textarea class="form-control" ng-model="feedback" rows="5"></textarea>
            	</div>
-           	<button class="btn btn-primary" ng-show="location">Submit</button>
+           	<button class="btn btn-primary animated fadeIn" ng-show="service">Submit</button>
 		</form>
 	</div>
 	<div class=" hospitals">
