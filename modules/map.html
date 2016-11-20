@@ -10,6 +10,8 @@
 <div class="col-md-6 map">
 	 <ng-map center="[6.519342, 3.372343]" zoom="15" scrollwheel="false">
 	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/green.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
+	 	<marker ng-repeat="magenta in blues" position="{{magenta.pos}}" icon="assets/img/magenta.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
+	 	<marker ng-repeat="magenta in magentas" position="{{magenta.pos}}" icon="assets/img/blue.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
 	 	<marker ng-repeat="yellowarea in yellowareas" position="{{yellowarea.pos}}" icon="assets/img/yellow.png" title="Location: {{yellowarea.name}}" on-click="seeDetails(event, yellowarea, 'yellowarea')"></marker>
 	 </ng-map>
 </div>
@@ -19,9 +21,17 @@
 			<div class="form-group">
 				<label for="location">Where is the hospital?</label>
                	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location" ng-change="search()" >
+               	<div class="col-md-12 result m-t no-padder" ng-show="searching">
+					<li ng-repeat="result in results" ng-click="addLocation(result)">
+						{{result.formatted_address}}
+					</li>
+				</div>
            	</div>
            	<div class="form-group animated animate-slow fadeIn" ng-show="location">
 				<label for="hospital">Select one from the list</label>
+				<!-- <select class="form-control" id="hospital" ng-options="center as center.name for center in healthCenters track by center.id" ng-model="hospital">
+					<option value="">Choose health center</option>
+				</select> -->
 				<select class="form-control" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
 					<option>Ikorodu health center</option>
@@ -32,7 +42,7 @@
 					<option value="Malaria treatment">Oak hospital</option>
 				</select>
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" >
+           	<div class="form-group animated animate-slow fadeIn" ng-show="location">
 				<label for="hospital">What service are you reporting on? </label>
 				<select class="form-control" id="hospital" ng-model="service">
 					<option value="">Choose a service</option>

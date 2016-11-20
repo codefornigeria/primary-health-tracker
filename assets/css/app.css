@@ -521,3 +521,26 @@ ng-map {
 .custom-file-upload input {
   border: none;
 }
+.result {
+  position: absolute;
+  z-index: 9999;
+  border: 1px solid #DEE5E7;
+  background: #fff;
+  width: 100%;
+}
+.result li {
+  list-style: none;
+  color: rgba(0, 0, 0, 0.36);
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.06;
+  border-bottom: 1px solid #DEE5E7;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.result li:hover {
+  background: #c5c5c5;
+  color: #333;
+  font-weight: 400;
+}
