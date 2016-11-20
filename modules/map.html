@@ -32,7 +32,7 @@
 				<!-- <select class="form-control" id="hospital" ng-options="center as center.obj.facilityName for center in healthCenters track by center.id" ng-model="hospital">
 					<option value="">Choose health center</option>
 				</select> -->
-				<select class="form-control" id="hospital" ng-model="hospital">
+				<select class="form-control capitalize" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
 					<option ng-repeat="center in healthCenters" class="capitalize">{{center.obj.facilityName}}</option>
 				</select>
