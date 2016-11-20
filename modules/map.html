@@ -29,9 +29,6 @@
            	</div>
            	<div class="form-group animated animate-slow fadeIn" ng-show="location.name">
 				<label for="hospital">Select one from the list</label>
-				<!-- <select class="form-control" id="hospital" ng-options="center as center.obj.facilityName for center in healthCenters track by center.id" ng-model="hospital">
-					<option value="">Choose health center</option>
-				</select> -->
 				<select class="form-control capitalize" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
 					<option ng-repeat="center in healthCenters" class="capitalize">{{center.obj.facilityName}}</option>
@@ -56,11 +53,11 @@
            	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="service">
            		<h1 class="rating-title">Rate the service</h1>
            		<fieldset class="rating no-padder">
-           			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5">5 stars</label>
-           			<input type="radio" id="star4" name="rating" value="4" ng-model="rating"/><label for="star4">4 stars</label>
-           			<input type="radio" id="star3" name="rating" value="3" ng-model="rating"/><label for="star3">3 stars</label>
-           			<input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2">2 stars</label>
-           			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1">1 star</label>
+           			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5" title="Excellent">5 stars</label>
+           			<input type="radio" id="star4" name="rating" value="4" ng-model="rating"/><label for="star4" title="Very Good">4 stars</label>
+           			<input type="radio" id="star3" name="rating" value="3" ng-model="rating"/><label for="star3" title="Good">3 stars</label>
+           			<input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2" title="Poor">2 stars</label>
+           			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1" title="Very Poor">1 star</label>
            		</fieldset>
            	</div>
            	<div class="col-md-12 no-padder animated animate-slow fadeIn service-cards" ng-show="rating">
