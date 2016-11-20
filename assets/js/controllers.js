@@ -40,10 +40,10 @@ angular.module('app.controllers', [])
     });
 
     $scope.search = function() {
-        var address = $scope.location;
+        var address = $scope.location.name;
         var inputMin = 1;
             
-        if ($scope.location && $scope.location.length >= inputMin) {
+        if ($scope.location.name && $scope.location.name.length >= inputMin) {
             $http({
                 method: 'GET',
                 url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' +
@@ -59,7 +59,6 @@ angular.module('app.controllers', [])
             }).then(function(results){
                 $scope.searching = true;
                 $scope.results = results.data.results;
-                console.log($scope.results);
             })
         } else {
             $scope.searching = false;
@@ -67,7 +66,7 @@ angular.module('app.controllers', [])
         }
 
     $scope.addLocation = function(result) {
-        $scope.location = result.formatted_address;
+        $scope.location.name = result.formatted_address;
         $scope.location.latitude = result.geometry.location.lat;
         $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
@@ -78,7 +77,6 @@ angular.module('app.controllers', [])
         $scope.load = true;
         Restangular.all('hospital/search').post($scope.location).then(function(response) {
             $scope.healthCenters = response;
-            console.log($scope.healthCenters);
         }), function(error){
             $scope.error = error;
             console.log(error)

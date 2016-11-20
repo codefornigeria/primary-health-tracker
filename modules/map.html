@@ -20,29 +20,24 @@
 		<form>
 			<div class="form-group">
 				<label for="location">Where is the hospital?</label>
-               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location" ng-change="search()" >
+               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location.name" ng-change="search()" >
                	<div class="col-md-12 result m-t no-padder" ng-show="searching">
 					<li ng-repeat="result in results" ng-click="addLocation(result)">
 						{{result.formatted_address}}
 					</li>
 				</div>
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" ng-show="location">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="location.name">
 				<label for="hospital">Select one from the list</label>
-				<!-- <select class="form-control" id="hospital" ng-options="center as center.name for center in healthCenters track by center.id" ng-model="hospital">
+				<!-- <select class="form-control" id="hospital" ng-options="center as center.obj.facilityName for center in healthCenters track by center.id" ng-model="hospital">
 					<option value="">Choose health center</option>
 				</select> -->
 				<select class="form-control" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
-					<option>Ikorodu health center</option>
-					<option>EKO hospital</option>
-					<option value="C section">Ikeja general hospital</option>
-					<option value="Ante-natal care">Military hospital</option>
-					<option value="Family planning">Luth general hospital</option>
-					<option value="Malaria treatment">Oak hospital</option>
+					<option ng-repeat="center in healthCenters">{{center.obj.facilityName}}</option>
 				</select>
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" ng-show="location">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="hospital">
 				<label for="hospital">What service are you reporting on? </label>
 				<select class="form-control" id="hospital" ng-model="service">
 					<option value="">Choose a service</option>
