@@ -87,5 +87,22 @@ angular.module('app.controllers', [])
         console.log(newService);
         $scope.service = $scope.newService;
     }
+
+    $scope.cleanliness = false;
+    $scope.power = false;
+    $scope.response = false;
+    $scope.blood = false;
+    $scope.clean = function() {
+        $scope.cleanliness = !$scope.cleanliness;
+    }  
+    $scope.powerSupply = function() {
+        $scope.power = !$scope.power;
+    }  
+    $scope.ambulance = function() {
+        $scope.response = !$scope.response;
+    }  
+    $scope.bloodBank = function() {
+        $scope.blood = !$scope.blood;
+    }  
 })
 

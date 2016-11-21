@@ -64,10 +64,10 @@
            	<div class="col-md-12 no-padder animated animate-slow fadeIn service-cards" ng-show="rating">
            		<h1 class="rating-title" ng-show="rating > '3'">What went well?</h1>
            		<h1 class="rating-title" ng-show="rating < '4'">What went wrong?</h1>
-           		<span class="service-card" ng-class="{selected: cleanliness === 'True'}" ng-click="cleanliness = 'True'">cleanliness</span>
-           		<span class="service-card" ng-class="{selected: power === 'True'}" ng-click="power = 'True'">Power Supply</span>
-           		<span class="service-card" ng-class="{selected: response === 'True'}" ng-click="response = 'True'">Ambulance Response</span>
-           		<span class="service-card" ng-class="{selected: blood === 'True'}" ng-click="blood = 'True'">Blood Availability</span>
+           		<span class="service-card" ng-class="{selected: cleanliness}" ng-click="clean()">cleanliness</span>
+           		<span class="service-card" ng-class="{selected: power}" ng-click="powerSupply()">Power Supply</span>
+           		<span class="service-card" ng-class="{selected: response}" ng-click="ambulance()">Ambulance Response</span>
+           		<span class="service-card" ng-class="{selected: blood}" ng-click="bloodBank()">Blood Availability</span>
            	</div>
            	<div class="form-group" ng-show="service">
 				<label for="">Any feedback?</label>
