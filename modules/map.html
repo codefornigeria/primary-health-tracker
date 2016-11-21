@@ -43,25 +43,27 @@
 					<option value="Ante-natal care">Ante-natal Care</option>
 					<option value="Family planning">Family Planning</option>
 					<option value="Malaria treatment">Malaria Treatment</option>
+					<option value="none">Add new service</option>
 				</select>
-				<p class="helper-text" ng-click="addService = !addService">Can't find the service? Add one here</p>
+				<!-- <p class="helper-text" ng-click="addService = !addService">Can't find the service? Add one here</p> -->
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" ng-show="addService" ng-init="addService = false">
-           		<input class="form-control" type="text" placeholder="Enter name of service" name="">
-           		<button class="btn btn-primary form-control m-t-sm" ng-click="addService = false">Add service</button>
+           	<div class="form-group animated animate-slow fadeIn" ng-show="service == 'none'">
+           		<input class="form-control" type="text" placeholder="Enter name of service" name="" ng-model="newService">
+           		<button class="btn btn-primary form-control m-t-sm" ng-click="addService(newService)">Add service</button>
            	</div>
            	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="service">
            		<h1 class="rating-title">Rate the service</h1>
            		<fieldset class="rating no-padder">
-           			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5" title="Excellent">5 stars</label>
+           			<input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5">5 stars <span class="tooltip">Excellent</span></label>
            			<input type="radio" id="star4" name="rating" value="4" ng-model="rating"/><label for="star4" title="Very Good">4 stars</label>
            			<input type="radio" id="star3" name="rating" value="3" ng-model="rating"/><label for="star3" title="Good">3 stars</label>
-           			<input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2" title="Poor">2 stars</label>
-           			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1" title="Very Poor">1 star</label>
+           			<input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2" title="fair">2 stars</label>
+           			<input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1" title="Poor">1 star</label>
            		</fieldset>
            	</div>
            	<div class="col-md-12 no-padder animated animate-slow fadeIn service-cards" ng-show="rating">
-           		<h1 class="rating-title">What went well?</h1>
+           		<h1 class="rating-title" ng-show="rating > '3'">What went well?</h1>
+           		<h1 class="rating-title" ng-show="rating < '4'">What went wrong?</h1>
            		<span class="service-card" ng-class="{selected: cleanliness === 'True'}" ng-click="cleanliness = 'True'">cleanliness</span>
            		<span class="service-card" ng-class="{selected: power === 'True'}" ng-click="power = 'True'">Power Supply</span>
            		<span class="service-card" ng-class="{selected: response === 'True'}" ng-click="response = 'True'">Ambulance Response</span>
@@ -90,7 +92,6 @@
 					<h1>Ikorodu Health Center</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-		                <i>Excellent</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -105,7 +106,6 @@
 					<h1>Ikeja General Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-		                <i>Very good</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -120,7 +120,6 @@
 					<h1>Military Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span><span>☆</span>
-		                <i>Good</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -135,7 +134,6 @@
 					<h1>Eko Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span>
-		                <i>Poor</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -150,7 +148,6 @@
 					<h1>Oak Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span>
-		                <i>Poor</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -165,7 +162,6 @@
 					<h1>Luth General Hospital</h1>
 					<div class="rating">
 		                <span>☆</span><span>☆</span>
-		                <i>Poor</i>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
@@ -190,5 +186,5 @@
 		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
 	</div>
 	
-	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/healthtoolsv2" target="_blank">Fork this project on Github</a></p>
+	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/primary-health-tracker" target="_blank">Fork this project on Github</a></p>
 </div>

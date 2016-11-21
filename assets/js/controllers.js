@@ -82,5 +82,10 @@ angular.module('app.controllers', [])
             console.log(error)
         };
     }
+
+    $scope.addService = function(newService) {
+        console.log(newService);
+        $scope.service = $scope.newService;
+    }
 })
 
