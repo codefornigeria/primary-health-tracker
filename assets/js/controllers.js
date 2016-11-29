@@ -40,25 +40,14 @@ angular.module('app.controllers', [])
     });
 
     $scope.search = function() {
-        var address = $scope.location.name;
+        var address = $scope.location.lga;
         var inputMin = 1;
             
-        if ($scope.location.name && $scope.location.name.length >= inputMin) {
-            $http({
-                method: 'GET',
-                url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-                                     address + '&key=AIzaSyCq_hPKdxEybYoangnVh1Fs_ARyjnmdSqs' + '&sensor=false&components=country:NG',
-
-                transformRequest: function(data, headersGetter) {
-                    var headers = headersGetter();
-
-                    delete headers['Authorization'];
-
-                    return headers;
-                }
-            }).then(function(results){
+        if ($scope.location.lga && $scope.location.lga.length >= inputMin) {
+            Restangular.all('hospital/searchlga').post($scope.location).then(function(results){
                 $scope.searching = true;
-                $scope.results = results.data.results;
+                $scope.results = results;
+                console.log(results);
             })
         } else {
             $scope.searching = false;
@@ -66,9 +55,9 @@ angular.module('app.controllers', [])
         }
 
     $scope.addLocation = function(result) {
-        $scope.location.name = result.formatted_address;
-        $scope.location.latitude = result.geometry.location.lat;
-        $scope.location.longitude = result.geometry.location.lng;
+        $scope.location.lga = result.uniqueLga;
+        // $scope.location.latitude = result.geometry.location.lat;
+        // $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
         $scope.showDetail();
     }

@@ -20,14 +20,14 @@
 		<form>
 			<div class="form-group">
 				<label for="location">Where is the hospital?</label>
-               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location.name" ng-change="search()" >
+               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location.lga" ng-change="search()" >
                	<div class="col-md-12 result m-t no-padder" ng-show="searching">
 					<li ng-repeat="result in results" ng-click="addLocation(result)">
-						{{result.formatted_address}}
+						{{result.uniqueLga}}, {{result.uniqueState}}
 					</li>
 				</div>
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" ng-show="location.name">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="location.lga">
 				<label for="hospital">Select one from the list</label>
 				<select class="form-control capitalize" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
