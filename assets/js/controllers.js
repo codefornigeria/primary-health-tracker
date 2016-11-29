@@ -40,14 +40,13 @@ angular.module('app.controllers', [])
     });
 
     $scope.search = function() {
-        var address = $scope.location.lga;
+        var address = $scope.location.name;
         var inputMin = 1;
             
-        if ($scope.location.lga && $scope.location.lga.length >= inputMin) {
-            Restangular.all('hospital/searchlga').post($scope.location).then(function(results){
+        if ($scope.location.name && $scope.location.name.length >= inputMin) {
+            Restangular.one('lga').get({name: $scope.location.name}).then(function(results){
                 $scope.searching = true;
                 $scope.results = results;
-                console.log(results);
             })
         } else {
             $scope.searching = false;
@@ -55,7 +54,7 @@ angular.module('app.controllers', [])
         }
 
     $scope.addLocation = function(result) {
-        $scope.location.lga = result.uniqueLga;
+        $scope.location.name = result.name;
         // $scope.location.latitude = result.geometry.location.lat;
         // $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
@@ -73,7 +72,6 @@ angular.module('app.controllers', [])
     }
 
     $scope.addService = function(newService) {
-        console.log(newService);
         $scope.service = $scope.newService;
     }
 
