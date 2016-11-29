@@ -55,6 +55,7 @@ angular.module('app.controllers', [])
 
     $scope.addLocation = function(result) {
         $scope.location.name = result.name;
+        $scope.location.lga = result.name;
         // $scope.location.latitude = result.geometry.location.lat;
         // $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
@@ -63,8 +64,9 @@ angular.module('app.controllers', [])
 
     $scope.showDetail = function() {
         $scope.load = true;
-        Restangular.all('hospital/search').post($scope.location).then(function(response) {
+        Restangular.all('hospital/searchlga').post($scope.location).then(function(response) {
             $scope.healthCenters = response;
+            console.log(response.plain());
         }), function(error){
             $scope.error = error;
             console.log(error)

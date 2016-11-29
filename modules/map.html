@@ -31,7 +31,7 @@
 				<label for="hospital">Select one from the list</label>
 				<select class="form-control capitalize" id="hospital" ng-model="hospital">
 					<option value="">Choose health center</option>
-					<option ng-repeat="center in healthCenters" class="capitalize">{{center.obj.facilityName}}</option>
+					<option ng-repeat="center in healthCenters" class="capitalize">{{center.facilityName}}</option>
 				</select>
            	</div>
            	<div class="form-group animated animate-slow fadeIn" ng-show="hospital">
