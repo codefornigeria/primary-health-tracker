@@ -575,3 +575,11 @@ span.tooltip:after {
   top: 0px;
   left: 48px;
 }
+.relative {
+  position: relative;
+}
+.hospital-loader {
+  position: absolute;
+  right: 15px;
+  top: 43px;
+}
