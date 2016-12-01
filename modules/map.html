@@ -83,6 +83,17 @@
            	<button class="btn btn-primary animated fadeIn" ng-show="service">Submit</button>
 		</form>
 	</div>
+	<div class="col-md-6"></div>
+	<div class="filter col-md-6 m-b-md">
+		<select class="form-control" id="hospital" ng-model="filter">
+			<option value="">Filter by:</option>
+			<option value="C section">5 stars</option>
+			<option value="Measles immunization">4 stars</option>
+			<option value="Ante-natal care">3 stars</option>
+			<option value="Family planning">2 stars</option>
+			<option value="Malaria treatment">1 star</option>
+		</select>
+	</div>
 	<div class=" hospitals">
 		<div class="col-md-6">
 			<div class="card">
