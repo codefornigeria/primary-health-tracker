@@ -86,95 +86,37 @@
 	</div>
 	<div class="col-md-6"></div>
 	<div class="filter col-md-6 m-b-md">
-		<select class="form-control" id="hospital" ng-model="filter">
+		<select class="form-control" id="hospital" ng-model="query.rating">
 			<option value="">Filter by:</option>
-			<option value="C section">5 stars</option>
-			<option value="Measles immunization">4 stars</option>
-			<option value="Ante-natal care">3 stars</option>
-			<option value="Family planning">2 stars</option>
-			<option value="Malaria treatment">1 star</option>
+			<option value="5">5 stars</option>
+			<option value="4">4 stars</option>
+			<option value="3">3 stars</option>
+			<option value="2">2 stars</option>
+			<option value="1">1 star</option>
 		</select>
 	</div>
 	<div class=" hospitals">
-		<div class="col-md-6">
+		<div class="col-md-6" ng-repeat="hospital in areas | filter:query ">
 			<div class="card">
 				<div class="hospital-img">
 					<img src="assets/img/hospital.jpg">
 				</div>
 				<div class="hospital-info">
-					<h1>Ikorodu Health Center</h1>
-					<div class="rating">
+					<h1>{{hospital.name}}</h1>
+					<div class="rating" ng-if="hospital.rating == '5'">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="card">
-				<div class="hospital-img">
-					<img src="assets/img/Gbagada-General-Hospital.jpg">
-				</div>
-				<div class="hospital-info">
-					<h1>Ikeja General Hospital</h1>
-					<div class="rating">
+		            <div class="rating" ng-if="hospital.rating == '4'">
 		                <span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		            </div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="card">
-				<div class="hospital-img">
-					<img src="assets/img/hospital.jpg">
-				</div>
-				<div class="hospital-info">
-					<h1>Military Hospital</h1>
-					<div class="rating">
+		            <div class="rating" ng-if="hospital.rating == '3'">
 		                <span>☆</span><span>☆</span><span>☆</span>
 		            </div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="card">
-				<div class="hospital-img">
-					<img src="assets/img/hospital.jpg">
-				</div>
-				<div class="hospital-info">
-					<h1>Eko Hospital</h1>
-					<div class="rating">
+		            <div class="rating" ng-if="hospital.rating == '2'">
 		                <span>☆</span><span>☆</span>
 		            </div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="card">
-				<div class="hospital-img">
-					<img src="assets/img/hospital.jpg">
-				</div>
-				<div class="hospital-info">
-					<h1>Oak Hospital</h1>
-					<div class="rating">
-		                <span>☆</span><span>☆</span>
-		            </div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="card">
-				<div class="hospital-img">
-					<img src="assets/img/hospital.jpg">
-				</div>
-				<div class="hospital-info">
-					<h1>Luth General Hospital</h1>
-					<div class="rating">
-		                <span>☆</span><span>☆</span>
+		            <div class="rating" ng-if="hospital.rating == '1'">
+		                <span>☆</span>
 		            </div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
