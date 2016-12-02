@@ -10,10 +10,9 @@
 </nav>
 <div class="col-md-6 map">
 	<ng-map center="[6.518357, 3.376886]" zoom="15" scrollwheel="false">
-	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/green.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
-	 	<marker ng-repeat="magenta in blues" position="{{magenta.pos}}" icon="assets/img/magenta.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
-	 	<marker ng-repeat="magenta in magentas" position="{{magenta.pos}}" icon="assets/img/blue.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
-	 	<marker ng-repeat="yellowarea in yellowareas" position="{{yellowarea.pos}}" icon="assets/img/yellow.png" title="Location: {{yellowarea.name}}" on-click="seeDetails(event, yellowarea, 'yellowarea')"></marker>
+	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/shield.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
+	 	<marker ng-repeat="magenta in blues" position="{{magenta.pos}}" icon="assets/img/doctor.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
+	 	<marker ng-repeat="yellowarea in yellowareas" position="{{yellowarea.pos}}" icon="assets/img/pulse.png" title="Location: {{yellowarea.name}}" on-click="seeDetails(event, yellowarea, 'yellowarea')"></marker>
 	</ng-map>
 </div>
 <div class="col-md-6 card-wrapper">

@@ -23,11 +23,11 @@ angular.module('app.controllers', [])
     // $scope.location = position;
 
    $scope.areas = [
-		{id: 01, pos:[6.519342, 3.372343], name:'Ikorodu health center', address: 'ikorodu, lagos', rating: '5'},
-        {id: 02, pos:[6.505866, 3.367138], name:'Ikeja general hospital', address: 'ikeja, lagos', rating: '4'},
-        {id: 03, pos:[6.530316, 3.378114], name:'Military hospital', address: 'yaba, lagos', rating: '3'},
-        {id: 04, pos:[6.520614, 3.352457], name:'Eko hospital', address: 'ikeja, lagos', rating: '2'},
-        {id: 05, pos:[6.522490, 3.382734], name:'Oak hospital', address: 'ikorodu, lagos', rating: '1'},
+		{id: 01, pos:[6.519342, 3.372343], name:'Ikorodu health center', address: 'ikorodu, lagos', rating: '5', type: 'clinic'},
+        {id: 02, pos:[6.505866, 3.367138], name:'Ikeja general hospital', address: 'ikeja, lagos', rating: '4', type: 'hospital'},
+        {id: 03, pos:[6.530316, 3.378114], name:'Military hospital', address: 'yaba, lagos', rating: '3', type: 'genaral'},
+        {id: 04, pos:[6.520614, 3.352457], name:'Eko hospital', address: 'ikeja, lagos', rating: '2', type: 'maternity'},
+        {id: 05, pos:[6.522490, 3.382734], name:'Oak hospital', address: 'ikorodu, lagos', rating: '1', type: 'hospital'},
 	];
     $scope.yellowareas = [
         {id: 01, pos:[6.522490, 3.382734], name:'yaba', address: 'Yaba college of technology'},
