@@ -40,3 +40,16 @@ angular.module('app.directives', [])
 		template: '<div class="overlay" ng-if="searching"><div class="spinner"><div class="spinner__item1"></div><div class="spinner__item2"></div><div class="spinner__item3"></div><div class="spinner__item4"></div></div></div>'
 	}
 })
+
+.run(['$rootScope', '$state',function($rootScope, $state){
+
+  $rootScope.$on('$stateChangeStart',function(){
+      $rootScope.stateIsLoading = true;
+ });
+
+
+  $rootScope.$on('$stateChangeSuccess',function(){
+      $rootScope.stateIsLoading = false;
+ });
+
+}]);

@@ -26,8 +26,44 @@ angular.module('app', [
       .state('home', {
         url: '',
         templateUrl: 'modules/map.html',
-        controller: 'appCtrl'
+        controller: 'appCtrl',
+        resolve: {
+            position: function (locationService) {
+                return locationService.getLocation().then(function(position){
+                  return position
+                })
+            }
+        }
+        
     })
       
       $urlRouterProvider.otherwise('/home')  
   }])
+
+.factory('locationService', ['$q',function($q) {
+    return  {
+        getLocation: function(){
+            var deferred = $q.defer();
+
+            if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                if(position){
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    deferred.resolve(userLocation);
+
+                }else{
+                   deferred.reject(false)
+                }
+
+               return userLocation;
+            })
+            } else {
+                deferred.reject(false)
+            }  
+            return deferred.promise;
+        }
+    }
+}])

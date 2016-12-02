@@ -56,7 +56,10 @@
     <!--JS_SCRIPTS END-->
 
 </head>
-    <body>
-        <div ng-app="app" ui-view></div>
+    <body ng-app="app">
+        <div ng-show='stateIsLoading' class="loader">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+        <div ui-view></div>
     </body>
 </html>

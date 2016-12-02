@@ -1,3 +1,4 @@
+
 <nav class="col-md-12 toolbar">
 	<div class="col-md-6 toolbar-logo">
 		<img src="assets/img/cfn_logo.png" class="logo">
@@ -8,12 +9,12 @@
 	</div>
 </nav>
 <div class="col-md-6 map">
-	 <ng-map center="[6.519342, 3.372343]" zoom="15" scrollwheel="false">
+	<ng-map center="[{{location.lat}}, {{location.lng}}]" zoom="15" scrollwheel="false">
 	 	<marker ng-repeat="area in areas" position="{{area.pos}}" icon="assets/img/green.png" title="Location: {{area.name}}" on-click="seeDetails(event, area, 'area')"></marker>
 	 	<marker ng-repeat="magenta in blues" position="{{magenta.pos}}" icon="assets/img/magenta.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
 	 	<marker ng-repeat="magenta in magentas" position="{{magenta.pos}}" icon="assets/img/blue.png" title="Location: {{magenta.name}}" on-click="seeDetails(event, magenta, 'magenta')"></marker>
 	 	<marker ng-repeat="yellowarea in yellowareas" position="{{yellowarea.pos}}" icon="assets/img/yellow.png" title="Location: {{yellowarea.name}}" on-click="seeDetails(event, yellowarea, 'yellowarea')"></marker>
-	 </ng-map>
+	</ng-map>
 </div>
 <div class="col-md-6 card-wrapper">
 	<div class="col-md-12 survey">
@@ -23,7 +24,7 @@
                	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="location.name" ng-change="search()" >
                	<div class="col-md-12 result m-t no-padder" ng-show="searching">
 					<li ng-repeat="result in results" ng-click="addLocation(result)">
-						{{result.name}}
+						{{result.lga}}, {{result.state}}
 					</li>
 				</div>
            	</div>
@@ -70,17 +71,17 @@
            		<span class="service-card" ng-class="{selected: response}" ng-click="ambulance()">Ambulance Response</span>
            		<span class="service-card" ng-class="{selected: blood}" ng-click="bloodBank()">Blood Availability</span>
            	</div>
-           	<div class="form-group" ng-show="service">
+           	<div class="form-group" ng-show="rating">
 				<label for="">Any feedback?</label>
 				<textarea class="form-control" ng-model="feedback" rows="5"></textarea>
            	</div>
-           	<div class="form-group animated animate-slow fadeIn" ng-show="service">
+           	<div class="form-group animated animate-slow fadeIn" ng-show="feedback">
            		<label for="photo">Attach a photo</label>
            		<div class="custom-file-upload">
-           			<input type="file" id="photo">
+           			<input type="file" id="photo" fileread="fileupload">
            		</div>
            	</div>
-           	<button class="btn btn-primary animated fadeIn" ng-show="service">Submit</button>
+           	<button class="btn btn-primary animated fadeIn" ng-show="fileupload">Submit</button>
 		</form>
 	</div>
 	<div class="col-md-6"></div>

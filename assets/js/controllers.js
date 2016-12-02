@@ -1,6 +1,27 @@
 angular.module('app.controllers', [])
 
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http) {
+.directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}])
+
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, position) {
+    $scope.location = position;
+    
    $scope.areas = [
 		{id: 01, pos:[6.519342, 3.372343], name:'yaba', address: 'Yaba college of technology'},
         {id: 02, pos:[6.505866, 3.367138], name:'yaba', address: 'Yaba college of technology'},
@@ -35,16 +56,16 @@ angular.module('app.controllers', [])
         $scope.selectedPoint = obj;
     }
 
-    NgMap.getMap().then(function(map) {
+    // NgMap.getMap().then(function(map) {
     	
-    });
+    // });
 
     $scope.search = function() {
         var address = $scope.location.name;
         var inputMin = 1;
             
         if ($scope.location.name && $scope.location.name.length >= inputMin) {
-            Restangular.one('lga').get({name: $scope.location.name}).then(function(results){
+            Restangular.one('hospital/lga').get({name: $scope.location.name}).then(function(results){
                 $scope.searching = true;
                 $scope.results = results;
             })
@@ -54,8 +75,8 @@ angular.module('app.controllers', [])
         }
 
     $scope.addLocation = function(result) {
-        $scope.location.name = result.name;
-        $scope.location.lga = result.name;
+        $scope.location.name = result.lga;
+        $scope.location.lga = result.lga;
         // $scope.location.latitude = result.geometry.location.lat;
         // $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
