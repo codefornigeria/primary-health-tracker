@@ -19,8 +19,8 @@ angular.module('app.controllers', [])
     }
 }])
 
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, position) {
-    $scope.location = position;
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http) {
+    // $scope.location = position;
     
    $scope.areas = [
 		{id: 01, pos:[6.519342, 3.372343], name:'yaba', address: 'Yaba college of technology'},

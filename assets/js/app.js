@@ -27,13 +27,13 @@ angular.module('app', [
         url: '',
         templateUrl: 'modules/map.html',
         controller: 'appCtrl',
-        resolve: {
-            position: function (locationService) {
-                return locationService.getLocation().then(function(position){
-                  return position
-                })
-            }
-        }
+        // resolve: {
+        //     position: function (locationService) {
+        //         return locationService.getLocation().then(function(position){
+        //           return position
+        //         })
+        //     }
+        // }
         
     })
       
