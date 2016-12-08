@@ -193,8 +193,41 @@ a {
   padding-top: 30px;
   overflow-y: scroll;
 }
+.card-wrapper .card-detail {
+  height: auto;
+  background: #ffffff;
+}
+.card-wrapper .card-detail .back {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.card-wrapper .card-detail h2 {
+  text-transform: capitalize;
+}
+.card-wrapper .card-detail .image {
+  float: left;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.card-wrapper .card-detail .image img {
+  width: 100%;
+}
+.card-wrapper .card-detail .comments {
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  font-size: 16px;
+}
 .card-wrapper .hospitals .card {
   margin-bottom: 30px;
+  min-height: 420px;
+  max-height: 420px;
+  overflow: hidden;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   background-color: white;
 }
@@ -614,6 +647,7 @@ span.tooltip:after {
   color: #a9a9a9;
   margin: 0;
   padding: 0;
+  font-size: 24px;
 }
 .rating li {
   list-style-type: none;
