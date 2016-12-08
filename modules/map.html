@@ -10,7 +10,7 @@
 </nav>
 <div class="col-md-6 map">
 	<ng-map center="[9.0820, 8.6753]" zoom="7" scrollwheel="false">
-	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/shield.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')"></marker>
+	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/marker.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')"></marker>
 	</ng-map>
 </div>
 <div class="col-md-6 card-wrapper">
