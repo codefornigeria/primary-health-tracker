@@ -19,8 +19,56 @@ angular.module('app.controllers', [])
     }
 }])
 
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http) {
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
     // $scope.location = position;
+
+    Restangular.all('tracker').getList().then(function(response){
+        $scope.tracks = response;
+        console.log(response.plain());
+    })
+
+    $scope.uploadFiles = function(file, errFiles) {
+        $scope.f = file;
+        $scope.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: 'https://sahara-health-api.herokuapp.com/upload',
+                data: {file: file}
+            });
+
+            file.upload.then(function (response) {
+                $scope.image = response.data.response.data.fileUrl;
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * 
+                                         evt.loaded / evt.total));
+            });
+        }   
+    }
+
+    $scope.rating = 0;
+    $scope.ratings = [{
+        current: 1,
+        max: 5
+    }];
+
+    $scope.getSelectedRating = function (rating) {
+        $scope.track.rating = rating;
+    }
+
+    
+
+    $scope.addTrack = function() {
+        $scope.track.image = $scope.image;
+        Restangular.all('tracker').post($scope.track).then(function(response) {
+            $state.reload();
+        }), function(error){
+            $scope.error = error;
+            console.log(error)
+        };
+    }
 
    $scope.areas = [
 		{id: 01, pos:[6.519342, 3.372343], name:'Ikorodu health center', address: 'ikorodu, lagos', rating: '5', type: 'clinic'},
@@ -61,11 +109,11 @@ angular.module('app.controllers', [])
     // });
 
     $scope.search = function() {
-        var address = $scope.location.name;
+        var address = $scope.track.name;
         var inputMin = 1;
             
-        if ($scope.location.name && $scope.location.name.length >= inputMin) {
-            Restangular.one('hospital/lga').get({name: $scope.location.name}).then(function(results){
+        if ($scope.track.name && $scope.track.name.length >= inputMin) {
+            Restangular.one('hospital/lga').get({name: $scope.track.name}).then(function(results){
                 $scope.searching = true;
                 $scope.results = results;
             })
@@ -75,8 +123,8 @@ angular.module('app.controllers', [])
         }
 
     $scope.addLocation = function(result) {
-        $scope.location.name = result.lga;
-        $scope.location.lga = result.lga;
+        $scope.track.name = result.lga;
+        $scope.track.lga = result.lga;
         // $scope.location.latitude = result.geometry.location.lat;
         // $scope.location.longitude = result.geometry.location.lng;
         $scope.searching = false;
@@ -85,7 +133,7 @@ angular.module('app.controllers', [])
 
     $scope.showDetail = function() {
         $scope.load = true;
-        Restangular.all('hospital/searchlga').post($scope.location).then(function(response) {
+        Restangular.all('hospital/searchlga').post($scope.track).then(function(response) {
             $scope.healthCenters = response;
             console.log(response.plain());
         }), function(error){
