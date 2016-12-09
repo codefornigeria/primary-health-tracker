@@ -131,5 +131,16 @@ angular.module('app.controllers', [])
     $scope.bloodBank = function() {
         $scope.blood = !$scope.blood;
     }  
+
+    $scope.ratingFilter = function() {
+        $scope.namefilter = false;
+        $scope.ratingfilter = !$scope.ratingfilter;
+        $scope.filter = 'rating';
+    } 
+    $scope.nameFilter = function() {
+        $scope.ratingfilter = false;
+        $scope.namefilter = !$scope.namefilter;
+        $scope.filter = 'name';
+    } 
 })
 

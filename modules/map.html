@@ -42,7 +42,7 @@
 			<form>
 				<div class="form-group">
 					<label for="location">Where is the hospital?</label>
-	               	<input class="form-control" type="text" placeholder="Enter location" id="location" ng-model="track.name" ng-change="search()" >
+	               	<input class="form-control capitalize" type="text" placeholder="Enter location" id="location" ng-model="track.name" ng-change="search()" >
 	               	<div class="col-md-12 result m-t no-padder" ng-show="searching">
 						<li ng-repeat="result in results" ng-click="addLocation(result)">
 							{{result.lga}}, {{result.state}}
@@ -109,14 +109,14 @@
 			</form>
 		</div>
 		<div>
-			<div class="col-md-6"></div>
-			<div class="filter col-md-6 m-b-md">
-				<select class="form-control" id="hospital" ng-model="filter">
-					<option value="">Filter by:</option>
-					<option value="rating">Rating</option>
-					<option value="hospital.facilityName">Name</option>
-				</select>
+			<div class="col-md-12 m-b-md">
+				Filter by: 
+				<span class="service-card-filter" ng-class="{selected: ratingfilter}" ng-click="ratingFilter()">Rating</span>
+	           	<span class="service-card-filter" ng-class="{selected: namefilter}" ng-click="nameFilter()">Name</span>
 			</div>
+			<!-- <div class="filter col-md-6 m-b-md">
+				
+			</div> -->
 			<div class=" hospitals">
 				<div class="col-md-6" ng-repeat="track in tracks | orderBy: filter">
 					<div class="card">
