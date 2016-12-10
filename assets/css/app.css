@@ -231,9 +231,13 @@ a {
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   background-color: white;
 }
-.card-wrapper .hospitals .card .hospital-img img {
-  width: 100%;
+.card-wrapper .hospitals .card .hospital-img {
+  text-align: center;
   max-height: 234px;
+  overflow: hidden;
+}
+.card-wrapper .hospitals .card .hospital-img img {
+  height: 100%;
   overflow: hidden;
 }
 .card-wrapper .hospitals .card .hospital-info {
