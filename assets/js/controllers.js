@@ -24,7 +24,25 @@ angular.module('app.controllers', [])
 
     Restangular.all('tracker').getList().then(function(response){
         $scope.tracks = response;
-    })
+    });
+
+    //Services
+    Restangular.all('service').getList().then(function(response){
+        $scope.services = response;
+        console.log(response.plain());
+    });
+
+    $scope.addNewService = function() {
+        $scope.services.push ({name: $scope.track.newService});
+        Restangular.all('service').post({name: $scope.track.newService}).then(function(response) {
+            $scope.track.service = $scope.track.newService;
+            $scope.track.newService = '';
+
+        }), function(error){
+            $scope.error = error;
+            console.log(error)
+        };
+    }
 
     $scope.uploadFiles = function(file, errFiles) {
         $scope.f = file;
