@@ -87,12 +87,16 @@ angular.module('app.controllers', [])
 	
     $scope.seeDetails = function(evt, obj, type) {
         $scope.point = obj;
-        // $scope.openTrack = true;
+        console.log(obj.plain());
         $scope.map.showInfoWindow('details', this);
         // Restangular.one('track-hospitals', hospital).get().then(function(results){
         //     $scope.results = results;
         //     console.log(results.plain());
         // })
+    }
+
+    $scope.open = function() {
+        $scope.openTrack = true;
     }
 
     $scope.search = function() {

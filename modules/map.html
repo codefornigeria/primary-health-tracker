@@ -13,7 +13,7 @@
 	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/marker.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
 	 		<info-window id="details">
 	            <div class="popupWindow" ng-non-bindable="">
-	            	<div class="image">
+	            	<div class="image clickable" ng-click="open()">
 	            		<img src="assets/img/hospital.jpg">
 	            	</div>
 	                <h1>{{point.hospital.facilityName}}</h1>

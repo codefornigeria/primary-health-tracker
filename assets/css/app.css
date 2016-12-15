@@ -686,8 +686,8 @@ ul.rating {
   display: inline-block;
 }
 .popupWindow {
-  width: 300px !important;
-  height: 300px !important;
+  width: 270px !important;
+  height: 270px !important;
   background: white;
 }
 .popupWindow .image {
