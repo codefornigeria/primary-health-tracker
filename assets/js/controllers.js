@@ -29,7 +29,6 @@ angular.module('app.controllers', [])
     //Services
     Restangular.all('service').getList().then(function(response){
         $scope.services = response;
-        console.log(response.plain());
     });
 
     $scope.addNewService = function() {
@@ -37,7 +36,6 @@ angular.module('app.controllers', [])
         Restangular.all('service').post({name: $scope.track.newService}).then(function(response) {
             $scope.track.service = $scope.track.newService;
             $scope.track.newService = '';
-
         }), function(error){
             $scope.error = error;
             console.log(error)
@@ -89,8 +87,8 @@ angular.module('app.controllers', [])
 	
     $scope.seeDetails = function(evt, obj, type) {
         $scope.point = obj;
-        console.log($scope.point.rating);
-        $scope.openTrack = true;
+        // $scope.openTrack = true;
+        $scope.map.showInfoWindow('details', this);
         // Restangular.one('track-hospitals', hospital).get().then(function(results){
         //     $scope.results = results;
         //     console.log(results.plain());
@@ -122,7 +120,6 @@ angular.module('app.controllers', [])
         $scope.load = true;
         Restangular.all('hospital/searchlga').post($scope.track).then(function(response) {
             $scope.healthCenters = response;
-            console.log(response.plain());
         }), function(error){
             $scope.error = error;
             console.log(error)

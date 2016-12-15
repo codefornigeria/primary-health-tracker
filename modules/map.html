@@ -10,7 +10,19 @@
 </nav>
 <div class="col-md-6 map">
 	<ng-map center="[9.0820, 8.6753]" zoom="7" scrollwheel="false">
-	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/marker.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')"></marker>
+	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/marker.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
+	 		<info-window id="details">
+	            <div class="popupWindow" ng-non-bindable="">
+	            	<div class="image">
+	            		<img src="assets/img/hospital.jpg">
+	            	</div>
+	                <h1>{{point.hospital.facilityName}}</h1>
+	                <span ng-repeat="rating in ratings">
+						<div health-rating rating-value="point.rating" max="rating.max" class="m-b-md"></div>
+					</span>
+	            </div>
+        	</info-window>
+	 	</marker>
 	</ng-map>
 </div>
 <div class="col-md-6 card-wrapper">

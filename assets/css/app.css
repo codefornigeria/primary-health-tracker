@@ -685,3 +685,22 @@ span.tooltip:after {
 ul.rating {
   display: inline-block;
 }
+.popupWindow {
+  width: 300px !important;
+  height: 300px !important;
+  background: white;
+}
+.popupWindow .image {
+  float: left;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.popupWindow .image img {
+  width: 100%;
+}
+.popupWindow h1 {
+  font-size: 24px;
+  text-transform: capitalize;
+}
