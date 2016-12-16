@@ -22,6 +22,16 @@ angular.module('app.controllers', [])
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
     // $scope.location = position;
 
+    if (localStorage.getItem('disclaimer') != 'shown') {
+        console.log('saved');
+        $scope.disclaimer = true;
+        localStorage.setItem('disclaimer','shown')
+    }
+
+    $scope.closeDisclaimer = function() {
+        $scope.disclaimer = false;
+    }
+
     Restangular.all('tracker').getList().then(function(response){
         $scope.tracks = response;
     });
@@ -161,5 +171,22 @@ angular.module('app.controllers', [])
         $scope.namefilter = !$scope.namefilter;
         $scope.filter = 'name';
     } 
+
+    $scope.getIcon = function (track) {
+            // console.log(track);
+        var iconsTable = {
+            1: "./assets/img/marker.png",
+            2: "./assets/img/marker.png",
+            3: "./assets/img/yellow.png",
+            4: "./assets/img/blue.png",
+            5: "./assets/img/blue.png",
+        }
+
+        var iconUrl = iconsTable[Math.floor(track.rating)]
+        console.log(iconUrl)
+        if (iconUrl)
+            return iconUrl;
+        return "http://maps.google.com/mapfiles/ms/icons/blue.png";
+    };
 })
 

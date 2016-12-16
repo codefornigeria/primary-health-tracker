@@ -1,4 +1,16 @@
-
+<div class="disclaimer" ng-show="disclaimer">
+	<p>
+		This PHC tracker is meant to give a general overview of the services, personnel, sanitary conditions and general satisfaction derived in using the facility.
+	</p> 
+	<p>
+		Click on the boxes below and choose from the list of drop downs and where it does not apply, please type your response.</p>
+	<p>
+		Also you can upload pictures, keep clicking till you get to submit.
+	</p>
+	<button class="btn btn-success" ng-click="closeDisclaimer()">
+		Got it
+	</button>
+</div>
 <nav class="col-md-12 toolbar">
 	<div class="col-md-6 toolbar-logo">
 		<img src="assets/img/cfn_logo.png" class="logo">
@@ -9,8 +21,8 @@
 	</div>
 </nav>
 <div class="col-md-6 map">
-	<ng-map center="[9.0820, 8.6753]" zoom="7" scrollwheel="false">
-	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="assets/img/marker.png" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
+	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto">
+	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
 	 		<info-window id="details">
 	            <div class="popupWindow" ng-non-bindable="">
 	            	<div class="image clickable" ng-click="open()">
@@ -117,7 +129,7 @@
 		</div>
 		<div>
 			<div class="col-md-12 m-b-md">
-				Filter by: 
+				Sort by: 
 				<span class="service-card-filter" ng-class="{selected: ratingfilter}" ng-click="ratingFilter()">Rating</span>
 	           	<span class="service-card-filter" ng-class="{selected: namefilter}" ng-click="nameFilter()">Name</span>
 			</div>
