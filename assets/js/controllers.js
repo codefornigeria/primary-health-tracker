@@ -178,8 +178,8 @@ angular.module('app.controllers', [])
             1: "./assets/img/marker.png",
             2: "./assets/img/marker.png",
             3: "./assets/img/yellow.png",
-            4: "./assets/img/blue.png",
-            5: "./assets/img/blue.png",
+            4: "./assets/img/green.png",
+            5: "./assets/img/green.png",
         }
 
         var iconUrl = iconsTable[Math.floor(track.rating)]
