@@ -161,16 +161,9 @@ angular.module('app.controllers', [])
         $scope.blood = !$scope.blood;
     }  
 
-    $scope.ratingFilter = function() {
-        $scope.namefilter = false;
-        $scope.ratingfilter = !$scope.ratingfilter;
-        $scope.filter = 'rating';
-    } 
-    $scope.nameFilter = function() {
-        $scope.ratingfilter = false;
-        $scope.namefilter = !$scope.namefilter;
-        $scope.filter = 'name';
-    } 
+    $scope.sortType     = 'name'; // set the default sort type
+    $scope.sortReverse  = false;  // set the default sort order
+    $scope.searchTrack   = '';     // set the default search/filter term
 
     $scope.getIcon = function (track) {
             // console.log(track);
