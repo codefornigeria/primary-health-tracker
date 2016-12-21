@@ -13,31 +13,14 @@
 </div>
 <nav class="col-md-12 toolbar">
 	<div class="col-md-6 toolbar-logo">
-		<img src="assets/img/cfn_logo.png" class="logo">
+		<img src="assets/img/logo.png" class="logo">
 		<a ui-sref="home"> Primary Healthcare Tracker</a>
 	</div>
 	<div class="col-md-6 about">
 		<a href="">About</a>
 	</div>
 </nav>
-<div class="col-md-6 map">
-	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto">
-	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
-	 		<info-window id="details">
-	            <div class="popupWindow" ng-non-bindable="">
-	            	<div class="image clickable" ng-click="open()">
-	            		<img src="assets/img/hospital.jpg">
-	            	</div>
-	                <h1>{{point.hospital.facilityName}}</h1>
-	                <span ng-repeat="rating in ratings">
-						<div health-rating rating-value="point.rating" max="rating.max" class="m-b-md"></div>
-					</span>
-	            </div>
-        	</info-window>
-	 	</marker>
-	</ng-map>
-</div>
-<div class="col-md-6 card-wrapper">
+<div class="col-md-7 card-wrapper">
 	<div class="col-md-12 card-detail animated fadeInLeft" ng-show="openTrack">
 		<div class="back" ng-click="openTrack = false">
 			<span class="fa fa-chevron-left"></span> Back
@@ -46,17 +29,15 @@
 		<div class="image">
 			<img src="assets/img/hospital.jpg">
 		</div>
+
 		<h2 class="m-b-sm">{{point.hospital.facilityName}}</h2>
+
 		<span ng-repeat="rating in ratings">
 			<div health-rating rating-value="3" max="rating.max" class="m-b-md"></div>
 		</span>
+
 		<h6 class="m-b-sm">Comments:</h6>
-		<p class="comments">
-			The hospital was quite good. Very well designed ward rooms and the nurses were very professional.
-		</p>
-		<p class="comments">
-			The hospital was quite good. Very well designed ward rooms and the nurses were very professional.
-		</p>
+
 		<p class="comments">
 			The hospital was quite good. Very well designed ward rooms and the nurses were very professional.
 		</p>
@@ -73,7 +54,7 @@
 						</li>
 					</div>
 	           	</div>
-	           	<div class="form-group animated animate-slow fadeIn relative" ng-show="track.name">
+	           	<div class="form-group animated animate-slow fadeIn relative col-md-6 no-padder-left" ng-show="track.name"> <!--ng-show="track.name"-->
 					<label for="hospital">Select one from the list</label>
 					<select class="form-control capitalize" id="hospital" ng-model="track.hospital">
 						<option value="">Choose health center </option>
@@ -81,7 +62,8 @@
 					</select>
 					<i class="fa fa-spinner fa-spin hospital-loader" ng-hide="healthCenters"></i>
 	           	</div>
-	           	<div class="form-group animated animate-slow fadeIn" ng-show="track.hospital">
+
+	           	<div class="form-group animated animate-slow fadeIn col-md-6 no-padder-right" ng-show="track.hospital"> <!--ng-show="track.hospital"-->
 					<label for="hospital">What service are you reporting on? </label>
 					<select class="form-control" id="hospital" ng-model="track.service">
 						<option value="">Choose a service</option>
@@ -89,16 +71,19 @@
 						<option value="none">Add new service</option>
 					</select>
 	           	</div>
-	           	<div class="form-group animated animate-slow fadeIn" ng-show="track.service == 'none'">
+
+	           	<div class="form-group animated animate-slow fadeIn col-md-6" ng-show="track.service == 'none'"> <!--ng-show="track.service == 'none'"-->
 	           		<input class="form-control" type="text" placeholder="Enter name of service" ng-model="track.newService">
 	           		<button class="btn btn-primary form-control m-t-sm" ng-click="addNewService()">Add service</button>
 	           	</div>
-	           	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="track.service">
+
+	           	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="track.service"> <!--ng-show="track.service"-->
 	           		<h1 class="rating-title">Rate the service</h1>
 	           		<span ng-repeat="rating in ratings">
 				        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
 				    </span>
 	           	</div>
+
 	           	<div class="col-md-12 no-padder animated animate-slow fadeIn service-cards" ng-show="track.rating">
 	           		<h1 class="rating-title" ng-show="track.rating > '3'">What went well?</h1>
 	           		<h1 class="rating-title" ng-show="track.rating < '4'">What went wrong?</h1>
@@ -107,10 +92,12 @@
 	           		<span class="service-card" ng-class="{selected: response}" ng-click="ambulance()">Ambulance Response</span>
 	           		<span class="service-card" ng-class="{selected: blood}" ng-click="bloodBank()">Blood Availability</span>
 	           	</div>
+
 	           	<div class="form-group" ng-show="track.rating">
 					<label for="">Any feedback?</label>
 					<textarea class="form-control" ng-model="track.comment" rows="5"></textarea>
 	           	</div>
+
 	           	<div class="form-group animated animate-slow fadeIn" ng-show="track.comment">
 	           		<label for="photo">Attach a photo</label>
 	           		<div class="custom-file-upload">
@@ -129,6 +116,7 @@
 		</div>
 		<div>
 			<div class="col-md-12 m-b-md">
+				<hr>
 				Sort by: 
 				<span class="service-card-filter" ng-class="{selected: sortType == 'rating'}" ng-click="sortType = 'rating'; sortReverse = !sortReverse">
 					<span>Rating</span>
@@ -146,7 +134,7 @@
 	           	</span>
 			</div>
 
-			<div class=" hospitals">
+			<div class="hospitals">
 				<div class="col-md-6" ng-repeat="track in tracks | orderBy:sortType:sortReverse | filter:searchTrack">
 					<div class="card">
 						<div class="hospital-img">
@@ -162,25 +150,47 @@
 					</div>
 				</div>
 			</div>
+			<div class="footer">
+				<div class="col-md-8">
+					<p class="footer-header">About</p>
+					<hr>
+					Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
+				</div>
+				<div class="col-md-4 p-t">
+					<p class="clickable"><i class="fa fa-facebook-square"></i><a href="https://web.facebook.com/codefornigeria" target="_blank">Like us on Facebook</a></p>
+					<p class="clickable"><i class="fa fa-twitter-square"></i><a href="https://twitter.com/codefornigeria" target="_blank">Follow us on Twitter</a></p>
+				</div>
+				<div class="col-md-12 partners">
+					<p class="footer-header">Built by  Code for Nigeria, with thought leadership from </p>
+					<hr>
+					<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
+					<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/logo.png"></a>
+				</div>
+				
+				<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/primary-health-tracker" target="_blank">Fork this project on Github</a></p>
+			</div>
 		</div>
 	</div>
 </div>
-<div class="footer">
-	<div class="col-md-8">
-		<p class="footer-header">About</p>
-		<hr>
-		Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
-	</div>
-	<div class="col-md-4 p-t">
-		<p class="clickable"><i class="fa fa-facebook-square"></i><a href="https://web.facebook.com/codefornigeria" target="_blank">Like us on Facebook</a></p>
-		<p class="clickable"><i class="fa fa-twitter-square"></i><a href="https://twitter.com/codefornigeria" target="_blank">Follow us on Twitter</a></p>
-	</div>
-	<div class="col-md-12 partners">
-		<p class="footer-header">Built by  Code for Nigeria, with thought leadership from </p>
-		<hr>
-		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
-		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
-	</div>
-	
-	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/primary-health-tracker" target="_blank">Fork this project on Github</a></p>
+
+<!--Map-->
+<div class="col-md-5 map" ng-class="{'show-map': showMap}">
+	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto" ng-if="showMap">
+	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
+	 		<info-window id="details">
+	            <div class="popupWindow" ng-non-bindable="">
+	            	<div class="image clickable" ng-click="open()">
+	            		<img src="assets/img/hospital.jpg">
+	            	</div>
+	                <h1>{{point.hospital.facilityName}}</h1>
+	                <span ng-repeat="rating in ratings">
+						<div health-rating rating-value="point.rating" max="rating.max" class="m-b-md"></div>
+					</span>
+	            </div>
+        	</info-window>
+	 	</marker>
+	</ng-map>
 </div>
+
+
+<button class="see-map" ng-click="showMap = !showMap">Map</button>

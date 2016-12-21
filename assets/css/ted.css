@@ -26,6 +26,14 @@
 	padding: 0;
 }
 
+.no-padder-left {
+	padding-left: 0 !important;
+}
+
+.no-padder-right {
+	padding-right: 0;
+}
+
 .no-margin {
 	margin: 0 !important;
 }
