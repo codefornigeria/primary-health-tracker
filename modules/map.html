@@ -135,7 +135,7 @@
 			</div>
 
 			<div class="hospitals">
-				<div class="col-md-6" ng-repeat="track in tracks | orderBy:sortType:sortReverse | filter:searchTrack">
+				<div class="col-md-6 col-sm-6" ng-repeat="track in tracks | orderBy:sortType:sortReverse | filter:searchTrack">
 					<div class="card">
 						<div class="hospital-img">
 							<img src="assets/img/hospital.jpg">
@@ -175,7 +175,7 @@
 
 <!--Map-->
 <div class="col-md-5 map" ng-class="{'show-map': showMap}">
-	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto" ng-if="showMap">
+	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto">
 	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
 	 		<info-window id="details">
 	            <div class="popupWindow" ng-non-bindable="">

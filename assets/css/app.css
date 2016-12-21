@@ -36,6 +36,11 @@ a {
   padding-right: 15px;
   color: #484848;
 }
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .toolbar {
+    width: 100%;
+  }
+}
 @media all and (min-width: 320px) and (max-width: 640px) {
   .toolbar {
     width: 100%;
@@ -49,6 +54,11 @@ a {
   text-align: right;
   text-transform: capitalize;
   text-decoration: none;
+}
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .toolbar .about {
+    display: none;
+  }
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
   .toolbar .about {
@@ -87,6 +97,26 @@ a {
   border: 0;
   z-index: 999999999999;
   outline: none;
+}
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .see-map {
+    display: none;
+  }
+}
+@media all and (min-width: 320px) and (max-width: 1024px) {
+  .see-map {
+    display: none;
+  }
+}
+@media all and (min-width: 960px) {
+  .see-map {
+    display: none;
+  }
+}
+@media all and (min-width: 320px) and (max-width: 640px) {
+  .see-map {
+    display: block;
+  }
 }
 .show-map {
   display: block !important;
