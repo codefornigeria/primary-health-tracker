@@ -176,7 +176,6 @@ angular.module('app.controllers', [])
         }
 
         var iconUrl = iconsTable[Math.floor(track.rating)]
-        console.log(iconUrl)
         if (iconUrl)
             return iconUrl;
         return "http://maps.google.com/mapfiles/ms/icons/blue.png";

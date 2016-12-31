@@ -45,7 +45,7 @@
 	<div ng-hide="openTrack">
 		<div class="col-md-12 survey">
 			<form novalidate>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label for="location">Where is the hospital?</label>
 	               	<input class="form-control capitalize" type="text" placeholder="Enter location" id="location" ng-model="track.name" ng-change="search()" >
 	               	<div class="col-md-12 result m-t no-padder" ng-show="searching">
@@ -77,7 +77,7 @@
 	           		<button class="btn btn-primary form-control m-t-sm" ng-click="addNewService()">Add service</button>
 	           	</div>
 
-	           	<div class="col-md-12 no-padder animated animate-slow fadeIn" ng-show="track.service"> <!--ng-show="track.service"-->
+	           	<div class="col-md-12 no-padder animated animate-slow fadeIn rating_service" ng-show="track.service"> <!--ng-show="track.service"-->
 	           		<h1 class="rating-title">Rate the service</h1>
 	           		<span ng-repeat="rating in ratings">
 				        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
