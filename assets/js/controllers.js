@@ -20,7 +20,18 @@ angular.module('app.controllers', [])
 }])
 
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
-    $scope.mapHide = true;
+    
+    $scope.detectmob = function() {
+        if(window.innerWidth <= 800) {
+            console.log('mobile');
+            $scope.mapHide = true;
+        } else {
+            $scope.mapHide = true;
+            console.log('notmobile');
+            $scope.mapHide = false;
+        }
+    }
+    $scope.detectmob();
 
     $scope.showMap = function() {
         $scope.mapHide = !$scope.mapHide;
