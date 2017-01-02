@@ -22,6 +22,13 @@ angular.module('app.controllers', [])
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
     // $scope.location = position;
 
+    $scope.showMap = function() {
+        var map = $scope.map;
+        google.maps.event.trigger(map,'resize');
+        $scope.revealMap = true;
+        console.log('yes')
+    }
+
     if (localStorage.getItem('disclaimer') != 'shown') {
         console.log('saved');
         $scope.disclaimer = true;

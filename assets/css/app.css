@@ -74,6 +74,16 @@ a {
 .map {
   padding: 0;
 }
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .map {
+    position: fixed;
+    width: 100% !important;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    display: block;
+  }
+}
 @media all and (min-width: 320px) and (max-width: 640px) {
   .map {
     position: fixed;
@@ -81,7 +91,7 @@ a {
     top: 0;
     left: 0;
     z-index: 999999;
-    display: none;
+    display: block;
   }
 }
 .see-map {
@@ -98,11 +108,6 @@ a {
   z-index: 999999999999;
   outline: none;
 }
-@media all and (min-width: 320px) and (max-width: 959px) {
-  .see-map {
-    display: none;
-  }
-}
 @media all and (min-width: 320px) and (max-width: 1024px) {
   .see-map {
     display: none;
@@ -111,6 +116,11 @@ a {
 @media all and (min-width: 960px) {
   .see-map {
     display: none;
+  }
+}
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .see-map {
+    display: block;
   }
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
@@ -612,8 +622,18 @@ ul.rating {
   font-size: 14px;
   color: #484848;
 }
+@media all and (min-width: 320px) and (max-width: 640px) {
+  .disclaimer {
+    width: 90%;
+  }
+}
 .no-padder-left {
   padding-left: 0;
+}
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .no-padder-left {
+    padding-left: 15px;
+  }
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
   .no-padder-left {
@@ -622,6 +642,11 @@ ul.rating {
 }
 .no-padder-right {
   padding-right: 0;
+}
+@media all and (min-width: 320px) and (max-width: 959px) {
+  .no-padder-right {
+    padding-left: 15px;
+  }
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
   .no-padder-right {

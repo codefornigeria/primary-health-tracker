@@ -174,7 +174,7 @@
 </div>
 
 <!--Map-->
-<div class="col-md-5 map" ng-class="{'show-map': showMap}">
+<div class="col-md-5 map" ng-show="revealMap">
 	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto">
 	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
 	 		<info-window id="details">
@@ -193,4 +193,4 @@
 </div>
 
 
-<button class="see-map" ng-click="showMap = !showMap">Map</button>
+<button class="see-map" ng-click="showMap()">Map</button>

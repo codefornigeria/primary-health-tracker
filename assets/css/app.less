@@ -120,6 +120,14 @@ a {
 
 .map {
 	padding: 0;
+	@media @tablet {
+		position: fixed;
+		width: 100% !important;
+		top: 0;
+		left: 0;
+		z-index: 999999;
+		display: none;
+	}
 	@media @mobile {
 		position: fixed;
 		width: 100% !important;
@@ -144,10 +152,6 @@ a {
 	z-index: 999999999999;
 	outline: none;
 
-	@media @tablet {
-		display: none;
-	}
-
 	@media @custom {
 		display: none;
 	}
@@ -155,7 +159,9 @@ a {
 	@media @desktop {
 		display: none;
 	}
-
+	@media @tablet {
+		display: block;
+	}
 	@media @mobile {
 		display: block;
 	}
@@ -690,10 +696,17 @@ ul.rating {
 	background: white;
 	font-size: 14px;
 	color: #484848;
+
+	@media @mobile {
+		width: 90%;
+	}
 }
 
 .no-padder-left {
 	padding-left: 0;
+	@media @tablet {
+		padding-left: 15px;
+	}
 	@media @mobile {
 		padding-left: 15px;
 	}
@@ -702,6 +715,9 @@ ul.rating {
 
 .no-padder-right {
 	padding-right: 0;
+	@media @tablet {
+		padding-left: 15px;
+	}
 	@media @mobile {
 		padding-right: 15px;
 	}
