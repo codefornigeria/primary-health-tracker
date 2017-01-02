@@ -175,7 +175,7 @@
 
 <!--Map-->
 <div class="col-md-5 map" ng-show="revealMap">
-	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto">
+	<ng-map center="[9.0820, 8.6753]" scrollwheel="false" zoom-to-include-markers="auto" zoom="8">
 	 	<marker ng-repeat="track in tracks" position="{{track.hospital.latitude}}, {{track.hospital.longitude}}" icon="{{getIcon(track)}}" title="Location: {{track.hospital.facilityName}}" on-click="seeDetails(event, track, 'track')">
 	 		<info-window id="details">
 	            <div class="popupWindow" ng-non-bindable="">
@@ -193,4 +193,5 @@
 </div>
 
 
-<button class="see-map" ng-click="showMap()">Map</button>
+<button class="see-map" ng-click="showMap()" ng-hide="revealMap">Map</button>
+<button class="see-map" ng-click="hideMap()" ng-show="revealMap">Results</button>

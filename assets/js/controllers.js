@@ -25,8 +25,12 @@ angular.module('app.controllers', [])
     $scope.showMap = function() {
         var map = $scope.map;
         google.maps.event.trigger(map,'resize');
+        console.log(map);
         $scope.revealMap = true;
         console.log('yes')
+    }
+    $scope.hideMap = function() {
+        $scope.revealMap = false;
     }
 
     if (localStorage.getItem('disclaimer') != 'shown') {
