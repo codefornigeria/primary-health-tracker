@@ -20,17 +20,10 @@ angular.module('app.controllers', [])
 }])
 
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
-    // $scope.location = position;
+    $scope.mapHide = true;
 
     $scope.showMap = function() {
-        var map = $scope.map;
-        google.maps.event.trigger(map,'resize');
-        console.log(map);
-        $scope.revealMap = true;
-        console.log('yes')
-    }
-    $scope.hideMap = function() {
-        $scope.revealMap = false;
+        $scope.mapHide = !$scope.mapHide;
     }
 
     if (localStorage.getItem('disclaimer') != 'shown') {
@@ -108,7 +101,6 @@ angular.module('app.controllers', [])
 	
     $scope.seeDetails = function(evt, obj, type) {
         $scope.point = obj;
-        console.log(obj.plain());
         $scope.map.showInfoWindow('details', this);
         // Restangular.one('track-hospitals', hospital).get().then(function(results){
         //     $scope.results = results;
