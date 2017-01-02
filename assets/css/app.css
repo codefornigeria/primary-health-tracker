@@ -81,7 +81,7 @@ a {
     top: 0;
     left: 0;
     z-index: 999999;
-    display: block;
+    display: none;
   }
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
@@ -91,7 +91,7 @@ a {
     top: 0;
     left: 0;
     z-index: 999999;
-    display: block;
+    display: none;
   }
 }
 .see-map {
@@ -175,8 +175,9 @@ a {
 }
 .card-wrapper .hospitals .card {
   margin-bottom: 30px;
-  min-height: 440px;
+  min-height: 360px;
   background-color: white;
+  overflow: hidden;
 }
 .card-wrapper .hospitals .card .hospital-img {
   text-align: center;
@@ -184,7 +185,7 @@ a {
   overflow: hidden;
 }
 .card-wrapper .hospitals .card .hospital-img img {
-  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 .card-wrapper .hospitals .card .hospital-info {

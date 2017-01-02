@@ -23,11 +23,8 @@ angular.module('app.controllers', [])
     
     $scope.detectmob = function() {
         if(window.innerWidth <= 800) {
-            console.log('mobile');
             $scope.mapHide = true;
         } else {
-            $scope.mapHide = true;
-            console.log('notmobile');
             $scope.mapHide = false;
         }
     }
