@@ -1,4 +1,4 @@
-<div class="disclaimer" ng-show="disclaimer">
+<div class="disclaimer animated fadeIn" ng-show="disclaimer">
 	<p>
 		This PHC tracker is meant to give a general overview of the services, personnel, sanitary conditions and general satisfaction derived in using the facility.
 	</p> 
@@ -17,7 +17,7 @@
 		<a ui-sref="home"> Primary Healthcare Tracker</a>
 	</div>
 	<div class="col-md-6 about">
-		<a href="">About</a>
+		<a href="" ng-click="disclaimer = 'true'">About</a>
 	</div>
 </nav>
 <div class="col-md-7 card-wrapper">

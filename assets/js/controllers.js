@@ -22,6 +22,7 @@ angular.module('app.controllers', [])
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
     
     $scope.detectmob = function() {
+        console.log('yes');
         if(window.innerWidth <= 800) {
             $scope.mapHide = true;
         } else {
@@ -31,6 +32,7 @@ angular.module('app.controllers', [])
     $scope.detectmob();
 
     $scope.showMap = function() {
+        console.log('true');
         $scope.mapHide = !$scope.mapHide;
     }
 
