@@ -23,7 +23,7 @@ angular.module('app.controllers', [])
     
     $scope.detectmob = function() {
         console.log('yes');
-        if(window.innerWidth <= 800) {
+        if(window.innerWidth <= 700) {
             $scope.mapHide = true;
         } else {
             $scope.mapHide = false;
