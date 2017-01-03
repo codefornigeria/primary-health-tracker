@@ -119,7 +119,11 @@ angular.module('app.controllers', [])
     }
 
     $scope.open = function() {
-        $scope.mapHide = true;
+        if(window.innerWidth <= 768) {
+            $scope.mapHide = true;
+        } else {
+            $scope.mapHide = false;
+        }
         $scope.openTrack = true;
     }
 
