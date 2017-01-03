@@ -23,7 +23,7 @@ angular.module('app.controllers', [])
     
     $scope.detectmob = function() {
         console.log('yes');
-        if(window.innerWidth <= 700) {
+        if(window.innerWidth <= 768) {
             $scope.mapHide = true;
         } else {
             $scope.mapHide = false;
@@ -119,6 +119,7 @@ angular.module('app.controllers', [])
     }
 
     $scope.open = function() {
+        $scope.mapHide = true;
         $scope.openTrack = true;
     }
 
