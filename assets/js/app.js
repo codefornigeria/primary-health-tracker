@@ -12,7 +12,7 @@ angular.module('app', [
 
 .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
   function($stateProvider, $urlRouterProvider, RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:1337/');
+  RestangularProvider.setBaseUrl('http://45.79.167.131:1337/');
 
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
       if (data.response && data.response.data) {

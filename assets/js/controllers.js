@@ -20,7 +20,7 @@ angular.module('app.controllers', [])
 }])
 
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
-    
+
     $scope.detectmob = function() {
         console.log('yes');
         if(window.innerWidth <= 768) {
@@ -71,7 +71,7 @@ angular.module('app.controllers', [])
         $scope.errFile = errFiles && errFiles[0];
         if (file) {
             file.upload = Upload.upload({
-                url: 'https://sahara-health-api.herokuapp.com/upload',
+                url: 'http://45.79.167.131/upload',
                 data: {file: file}
             });
 
@@ -81,10 +81,10 @@ angular.module('app.controllers', [])
                 if (response.status > 0)
                     $scope.errorMsg = response.status + ': ' + response.data;
             }, function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 * 
+                file.progress = Math.min(100, parseInt(100.0 *
                                          evt.loaded / evt.total));
             });
-        }   
+        }
     }
 
     $scope.rating = 0;
@@ -97,7 +97,7 @@ angular.module('app.controllers', [])
         $scope.track.rating = rating;
     }
 
-    
+
 
     $scope.addTrack = function() {
         $scope.track.image = $scope.image;
@@ -108,7 +108,7 @@ angular.module('app.controllers', [])
             console.log(error)
         };
     }
-	
+
     $scope.seeDetails = function(evt, obj, type) {
         $scope.point = obj;
         $scope.map.showInfoWindow('details', this);
@@ -130,7 +130,7 @@ angular.module('app.controllers', [])
     $scope.search = function() {
         var address = $scope.track.name;
         var inputMin = 1;
-            
+
         if ($scope.track.name && $scope.track.name.length >= inputMin) {
             Restangular.one('hospital/lga').get({name: $scope.track.name}).then(function(results){
                 $scope.searching = true;
@@ -138,7 +138,7 @@ angular.module('app.controllers', [])
             })
         } else {
             $scope.searching = false;
-          }        
+          }
         }
 
     $scope.addLocation = function(result) {
@@ -168,16 +168,16 @@ angular.module('app.controllers', [])
     $scope.blood = false;
     $scope.clean = function() {
         $scope.cleanliness = !$scope.cleanliness;
-    }  
+    }
     $scope.powerSupply = function() {
         $scope.power = !$scope.power;
-    }  
+    }
     $scope.ambulance = function() {
         $scope.response = !$scope.response;
-    }  
+    }
     $scope.bloodBank = function() {
         $scope.blood = !$scope.blood;
-    }  
+    }
 
     $scope.sortType     = 'name'; // set the default sort type
     $scope.sortReverse  = false;  // set the default sort order
@@ -199,4 +199,3 @@ angular.module('app.controllers', [])
         return "http://maps.google.com/mapfiles/ms/icons/blue.png";
     };
 })
-
