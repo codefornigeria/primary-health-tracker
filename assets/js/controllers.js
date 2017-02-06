@@ -71,7 +71,7 @@ angular.module('app.controllers', [])
         $scope.errFile = errFiles && errFiles[0];
         if (file) {
             file.upload = Upload.upload({
-                url: 'http://45.79.167.131/upload',
+                url: 'http://45.79.167.131:1337/upload',
                 data: {file: file}
             });
 
