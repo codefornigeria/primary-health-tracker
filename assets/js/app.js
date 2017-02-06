@@ -12,7 +12,7 @@ angular.module('app', [
 
 .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
   function($stateProvider, $urlRouterProvider, RestangularProvider) {
-  RestangularProvider.setBaseUrl('https://sahara-health-api.herokuapp.com/');
+  RestangularProvider.setBaseUrl('http://localhost:1337/');
 
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
       if (data.response && data.response.data) {
@@ -22,7 +22,7 @@ angular.module('app', [
           return data;
       };
   });
-      
+
       $stateProvider
       .state('home', {
         url: '',
@@ -35,10 +35,10 @@ angular.module('app', [
         //         })
         //     }
         // }
-        
+
     })
-      
-      $urlRouterProvider.otherwise('/home')  
+
+      $urlRouterProvider.otherwise('/home')
   }])
 
 .factory('locationService', ['$q',function($q) {
@@ -63,7 +63,7 @@ angular.module('app', [
             })
             } else {
                 deferred.reject(false)
-            }  
+            }
             return deferred.promise;
         }
     }
