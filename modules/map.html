@@ -41,6 +41,7 @@
 		<p class="comments">
 			{{point.comment}}
 		</p>
+		<p class="comments" ng-repeat="track in selectedTracks">{{track.comment}}</p>
 	</div>
 	<div ng-hide="openTrack">
 		<div class="col-md-12 survey">

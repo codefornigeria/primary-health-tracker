@@ -22,7 +22,6 @@ angular.module('app.controllers', [])
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams, NgMap, $http, Upload, $timeout) {
 
     $scope.detectmob = function() {
-        console.log('yes');
         if(window.innerWidth <= 768) {
             $scope.mapHide = true;
         } else {
@@ -114,7 +113,6 @@ angular.module('app.controllers', [])
           $scope.map.showInfoWindow('details', this);
          Restangular.one('track-hospitals', obj.hospital.id).get().then(function(results){
              $scope.results = results;
-             console.log(results.plain());
          })
     }
 
@@ -125,6 +123,13 @@ angular.module('app.controllers', [])
             $scope.mapHide = false;
         }
         $scope.openTrack = true;
+        Restangular.one('track-hospitals', $scope.point.id).get().then(function(response) {
+            $scope.selectedTracks = response;
+            console.log($scope.selectedTracks.plain());
+        }), function(error){
+            $scope.error = error;
+            console.log(error)
+        };
     }
 
     $scope.search = function() {
