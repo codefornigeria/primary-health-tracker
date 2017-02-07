@@ -125,6 +125,12 @@ angular.module('app.controllers', [])
             $scope.mapHide = false;
         }
         $scope.openTrack = true;
+        Restangular.one('track-hospitals', $scope.point.id).get().then(function(response) {
+            $scope.selectedTracks = response;
+        }), function(error){
+            $scope.error = error;
+            console.log(error)
+        };
     }
 
     $scope.search = function() {
