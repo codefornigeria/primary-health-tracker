@@ -111,11 +111,11 @@ angular.module('app.controllers', [])
 
     $scope.seeDetails = function(evt, obj, type) {
         $scope.point = obj;
-        $scope.map.showInfoWindow('details', this);
-        // Restangular.one('track-hospitals', hospital).get().then(function(results){
-        //     $scope.results = results;
-        //     console.log(results.plain());
-        // })
+          $scope.map.showInfoWindow('details', this);
+         Restangular.one('track-hospitals', obj.hospital.id).get().then(function(results){
+             $scope.results = results;
+             console.log(results.plain());
+         })
     }
 
     $scope.open = function() {
@@ -125,12 +125,6 @@ angular.module('app.controllers', [])
             $scope.mapHide = false;
         }
         $scope.openTrack = true;
-        Restangular.one('track-hospitals', $scope.point.id).get().then(function(response) {
-            $scope.selectedTracks = response;
-        }), function(error){
-            $scope.error = error;
-            console.log(error)
-        };
     }
 
     $scope.search = function() {
