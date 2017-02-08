@@ -27,7 +27,7 @@
 		</div>
 		
 		<div class="image">
-			<img src="assets/img/hospital.jpg">
+			<img src="http://45.79.167.131:1337{{point.image}}">
 		</div>
 
 		<h2 class="m-b-sm">{{point.hospital.facilityName}}</h2>
@@ -139,7 +139,7 @@
 				<div class="col-md-6 col-sm-6" ng-repeat="track in tracks | orderBy:sortType:sortReverse | filter:searchTrack">
 					<div class="card">
 						<div class="hospital-img">
-							<img src="assets/img/hospital.jpg">
+							<img src="http://45.79.167.131:1337{{track.image}}">
 						</div>
 						<div class="hospital-info">
 							<h1>{{track.hospital.facilityName}}</h1>

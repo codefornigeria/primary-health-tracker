@@ -125,6 +125,7 @@ angular.module('app.controllers', [])
         $scope.openTrack = true;
         Restangular.one('track-hospitals', $scope.point.hospital.id).get().then(function(response) {
             $scope.selectedTracks = response;
+            console.log($scope.selectedTracks.plain());
         }), function(error){
             $scope.error = error;
             console.log(error)
