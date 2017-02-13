@@ -423,10 +423,14 @@ ng-map {
   padding-right: 0;
   float: left;
   border-top: 1px solid #eeeeee;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .footer img {
   height: 50px;
   margin: 10px;
+  margin-left: 0;
 }
 .footer hr {
   border: none;
