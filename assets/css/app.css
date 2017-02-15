@@ -423,7 +423,7 @@ ng-map {
   padding-right: 0;
   float: left;
   border-top: 1px solid #eeeeee;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
 }
