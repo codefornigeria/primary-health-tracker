@@ -1,7 +1,7 @@
 <div class="disclaimer animated fadeIn" ng-show="disclaimer">
 	<p>
 		This PHC tracker is meant to give a general overview of the services, personnel, sanitary conditions and general satisfaction derived in using the facility.
-	</p> 
+	</p>
 	<p>
 		Click on the boxes below and choose from the list of drop downs and where it does not apply, please type your response.</p>
 	<p>
@@ -25,7 +25,7 @@
 		<div class="back" ng-click="openTrack = false">
 			<span class="fa fa-chevron-left"></span> Back
 		</div>
-		
+
 		<div class="image">
 			<img src="http://45.79.167.131:1337{{point.image}}">
 		</div>
@@ -104,11 +104,11 @@
 	           		<div class="custom-file-upload">
 	           			<input type="file" id="photo" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-size="2MB" required fileread="file">
 	           		</div>
-	           		<img ngf-thumbnail="picFile" class="thumb"> 
+	           		<img ngf-thumbnail="picFile" class="thumb">
 	           		<button ng-click="picFile = null" ng-show="picFile">Remove</button>
 	           		<span class="progress" ng-show="f.progress >= 0">
 				        <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'">
-				               	
+
 				        </div>
 				     </span>
 	           	</div>
@@ -118,7 +118,7 @@
 		<div>
 			<div class="col-md-12 m-b-md">
 				<hr>
-				Sort by: 
+				Sort by:
 				<span class="service-card-filter" ng-class="{selected: sortType == 'rating'}" ng-click="sortType = 'rating'; sortReverse = !sortReverse">
 					<span>Rating</span>
 					<div class="order">
@@ -177,7 +177,7 @@
 	 		<info-window id="details">
 	            <div class="popupWindow" ng-non-bindable="">
 	            	<div class="image clickable" ng-click="open()">
-	            		<img src="assets/img/hospital.jpg">
+	            		<img src="http://45.79.167.131:1337{{point.image}}">
 	            	</div>
 	                <h1>{{point.hospital.facilityName}}</h1>
 	                <span ng-repeat="rating in ratings">
